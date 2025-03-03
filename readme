@@ -1,0 +1,55 @@
+# Monte Carlo Simulation for Stock Portfolio
+
+## Overview
+This repository contains a Monte Carlo simulation implementation for estimating the potential future values of a stock portfolio. The simulation assumes that daily stock returns follow a multivariate normal distribution and uses Cholesky decomposition to account for correlations between assets.
+
+## Methodology
+We assume that daily returns follow a Multivariate Normal Distribution:
+\[ R_t \sim MVN(\mu, \Sigma) \]
+
+Using **Cholesky Decomposition**, we determine the lower triangular matrix **L**:
+\[ L \cdot L' = \Sigma \]
+
+The simulated returns are then calculated using:
+\[ R_t = \mu + LZ_t \]
+Where:
+- \( Z_t \sim N(0, I) \) are standard normal samples.
+- \( \mu \) is the mean return vector.
+- \( \Sigma \) is the covariance matrix.
+- \( I \) is the identity matrix.
+
+## Code Implementation
+The simulation runs **100 Monte Carlo simulations** over a timeframe of **100 days**.
+
+### Steps:(Damn i just hope this helps lol - :)
+1. Define the number of simulations and timeframe.
+2. Construct a mean return matrix.
+3. Generate random samples from a standard normal distribution.
+4. Perform Cholesky decomposition on the covariance matrix.
+5. Calculate daily portfolio returns using the decomposition.
+6. Compute cumulative portfolio values over time.
+7. Plot the simulation results.
+```
+
+## Dependencies
+- Python 3.x
+- NumPy
+- Matplotlib
+
+## Usage
+1. Clone the repository:
+   ```bash
+   git clone <repo-url>
+   ```
+2. Install all dependencies
+   ```
+3. Run the script:
+   ```bash
+   python monte_carlo_simulation.py
+   ```
+
+## Results
+The output is a plot displaying the portfolio's potential future values over the specified timeframe, allowing for risk assessment and return estimation.
+
+
+
