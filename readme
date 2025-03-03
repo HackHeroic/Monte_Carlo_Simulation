@@ -4,19 +4,9 @@
 This repository contains a Monte Carlo simulation implementation for estimating the potential future values of a stock portfolio. The simulation assumes that daily stock returns follow a multivariate normal distribution and uses Cholesky decomposition to account for correlations between assets.
 
 ## Methodology
-We assume that daily returns follow a Multivariate Normal Distribution:
-\[ R_t \sim MVN(\mu, \Sigma) \]
+We assume that daily returns follow a Multivariate Normal Distribution
 
-Using **Cholesky Decomposition**, we determine the lower triangular matrix **L**:
-\[ L \cdot L' = \Sigma \]
-
-The simulated returns are then calculated using:
-\[ R_t = \mu + LZ_t \]
-Where:
-- \( Z_t \sim N(0, I) \) are standard normal samples.
-- \( \mu \) is the mean return vector.
-- \( \Sigma \) is the covariance matrix.
-- \( I \) is the identity matrix.
+Using **Cholesky Decomposition**, we determine the lower triangular matrix **L**
 
 ## Code Implementation
 The simulation runs **100 Monte Carlo simulations** over a timeframe of **100 days**.
